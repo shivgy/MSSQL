@@ -48,9 +48,10 @@ The **OCCUPATIONS** table is described as follows:
 ```
 
 ## Solution
+```
 select * into #emp from occupations;
 select Doctor,Professor,Singer,Actor from (select name,occupation,row_number() over(partition by occupation order by name) as rn from #emp)as S pivot(max(name) for occupation in(Doctor,Professor,Singer,Actor)) as pvt;
-
+```
 ## Explanation
 Syntax of `PIVOT` function:
 ```
