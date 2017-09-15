@@ -49,6 +49,20 @@ The **OCCUPATIONS** table is described as follows:
 
 ## Solution
 ```
+create table occupations(name nvarchar(20), Occupation nvarchar(20));
+insert into occupations(name,occupation) values('Sumantha','Doctor');
+insert into occupations(name,occupation) values('Julia','Actor');
+insert into occupations(name,occupation) values('Maria','Actor');
+insert into occupations(name,occupation) values('Mira','Singer');
+insert into occupations(name,occupation) values('Ashely','Professor');
+insert into occupations(name,occupation) values('Kitty','Professor');
+insert into occupations(name,occupation) values('Christine','Professor');
+insert into occupations(name,occupation) values('Jane','Actor');
+insert into occupations(name,occupation) values('Rashmi','Doctor');
+insert into occupations(name,occupation) values('Priya','Singer');
+insert into occupations(name,occupation) values('Tanya','Singer');
+insert into occupations(name,occupation) values('Tango','Doctor');
+
 select * into #emp from occupations;
 select Doctor,Professor,Singer,Actor from (select name,occupation,row_number() over(partition by occupation order by name) as rn from #emp)as S pivot(max(name) for occupation in(Doctor,Professor,Singer,Actor)) as pvt;
 ```
