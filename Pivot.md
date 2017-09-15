@@ -71,3 +71,4 @@ FOR
 ) AS <alias for the pivot table>
 <optional ORDER BY clause>;
 ```
+The solution can be compiled here: [http://rextester.com/l/sql_server_online_compiler]
